@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #ff9800">
+  <div class="container">
+    <div id="container" class="jumbotron text-center" style="height: 500px">
+      <h1>HIGHCHARTS CHART</h1>
+    </div>
+
+  <form class="form-inline" role="form">
+      <div class="form-group">
+        <input id="start" class="form-control input-lg" type="date" name="from" size="5px" min="2016-01-01"><br>
+        <label for="name">From</label>
+      </div>
+      <div class="form-group">
+        <input id="finish" class="form-control input-lg" type="date" min="2016-01-01" name="to" size="5px"><br>
+         <label for="name">To</label>
+      </div>
+  </form>
+  <form class="form-inline" role="form">
+      <div class="form-group">
+        <input type="button" class="btn btn-primary btn-lg" name="Generate chart" value="Generate chart" onclick="generateChart()">
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+
+</form>
+</body>
+</html>
