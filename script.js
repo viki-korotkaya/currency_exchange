@@ -1,5 +1,5 @@
 "use strict";
-    function generateChart() {
+ function generateChart() {
 
       var startDate = new Date(document.getElementById("start").value); 
       var endDate =  new Date(document.getElementById("finish").value);
