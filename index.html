@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="http://code.highcharts.com/highcharts.js"></script>
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body style="background-color: #ff9800">
+<body>
   <div class="container">
-    <div id="container" class="jumbotron text-center" style="height: 500px">
+    <div id="container" class="jumbotron text-center">
       <h1>HIGHCHARTS CHART</h1>
     </div>
-
-  <form class="form-inline" role="form">
+    
+    <form class="form-inline">
       <div class="form-group">
-        <input id="start" class="form-control input-lg" type="date" name="from" size="5px" min="2016-01-01"><br>
-        <label for="name">From</label>
+        <label for="start">From</label>
+        <input type="date" class="form-control btn-info" id="start" min="2016-01-01">
       </div>
       <div class="form-group">
-        <input id="finish" class="form-control input-lg" type="date" min="2016-01-01" name="to" size="5px"><br>
-         <label for="name">To</label>
+        <label for="finish">To</label>
+        <input type="date" class="form-control btn-info" id="finish" min="2016-01-01">
       </div>
-  </form>
-  <form class="form-inline" role="form">
-      <div class="form-group">
-        <input type="button" class="btn btn-primary btn-lg" name="Generate chart" value="Generate chart" onclick="generateChart()">
-      </div>
-    </form>
+      
+      <input type="button" class="btn btn-info" value="Generate chart" onclick="generateChart()" name="Generate chart">
+</form>
+    
   </div>
   <script src="script.js"></script>
 
-
 </body>
 </html>
+
+
+

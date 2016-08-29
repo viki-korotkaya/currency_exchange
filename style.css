@@ -1,0 +1,12 @@
+body {
+	background: -webkit-linear-gradient(left,  #F8D1D1, #F8E3D1, #F8F7D1, #D5F8D1, #D1F8F7, #D1D1F8, #EED1F8); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left,  #F8D1D1, #F8E3D1, #F8F7D1, #D5F8D1, #D1F8F7, #D1D1F8, #EED1F8); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left,  #F8D1D1, #F8E3D1, #F8F7D1, #D5F8D1, #D1F8F7, #D1D1F8, #EED1F8); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #F8D1D1, #F8E3D1, #F8F7D1, #D5F8D1, #D1F8F7, #D1D1F8, #EED1F8); /* Standard syntax*/
+}
+#container {
+	background: linear-gradient(to right, #F2D0D0, #F2F1D0, #D0F2D2, #D0D9F2, #F2D0E5);
+	height: 500px;
+}
+
+ 
