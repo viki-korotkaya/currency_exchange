@@ -99,8 +99,8 @@ $(document).ready(function(){
                       categories: arrDate
                     },
                     yAxis: {
-                      min: 18000,
-                      max: 23000
+                      min: null,
+                      max: nullЗ
                     },
                     series: [{
                       data: arrCourse
