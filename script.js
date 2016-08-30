@@ -1,5 +1,34 @@
 "use strict";
- function generateChart() {
+  $(document).ready(function(){
+    function getValue() {
+      var toDate = new Date ();
+      var dd = toDate.getDate();
+        if (dd < 10) dd = '0' + dd;
+      var mm = toDate.getMonth() + 1;
+        if (mm < 10) mm = '0' + mm;
+      var yyyy = toDate.getFullYear();
+      toDate = yyyy + '-' + mm + '-' + dd;
+        return toDate;  
+    }
+    document.getElementById("finish").value = getValue();
+  });
+
+$(document).ready(function(){
+    function getValueStart() {
+      var toDate = new Date ();
+      var dd = toDate.getDate();
+        if (dd < 10) dd = '0' + dd;
+      var mm = toDate.getMonth();
+        if (mm < 10) mm = '0' + mm;
+      var yyyy = toDate.getFullYear();
+      toDate = yyyy + '-' + mm + '-' + dd;
+      return toDate;  
+    } 
+    document.getElementById("start").value = getValueStart();
+  });
+
+
+  function generateChart() {
 
       var startDate = new Date(document.getElementById("start").value); 
       var endDate =  new Date(document.getElementById("finish").value);
