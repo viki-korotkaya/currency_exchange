@@ -100,7 +100,7 @@ $(document).ready(function(){
                     },
                     yAxis: {
                       min: null,
-                      max: nullЗ
+                      max: null
                     },
                     series: [{
                       data: arrCourse
