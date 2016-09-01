@@ -37,7 +37,7 @@ $(document).ready(function(){
       var arrDate = []; 
       //массив, который в последствии будет содержать курс BYR к доллару
       var arrCourse = [];
-
+      var arrColor = ['#7cb5ec'];
 
         /*перебираем даты от начала до конца и преобразуем каждую в формат, 
         используемый в $.ajax и добавляем в массив arrDate*/
@@ -80,10 +80,30 @@ $(document).ready(function(){
         createDateArray();
         getData();
 
+        function getColorArray(arrCourse) {
+
+          for (var i = 1; i < arrCourse.length; i++) {
+            if (arrCourse[i] / arrCourse[i-1] >= 1.002) {
+              arrColor.push('red');
+            } else if (arrCourse[i] / arrCourse[i-1] <= 0.998) {
+              arrColor.push('green');
+            } else {
+              arrColor.push('#7cb5ec');
+            }
+          };
+          return arrColor;
+        };
+
+         getColorArray(arrCourse);
+
         //функция построения графика
         $(function () {
 
+          Highcharts.setOptions({
+            colors: arrColor
+          });
                 $('#container').highcharts({
+                    
                     chart: {
                        type: 'column'
                     },
@@ -103,7 +123,8 @@ $(document).ready(function(){
                       max: null
                     },
                     series: [{
-                      data: arrCourse
+                      data: arrCourse,
+                      
                     }]
                
                 });
