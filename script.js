@@ -61,7 +61,7 @@ $(document).ready(function(){
         по курсам валюты*/
         function getData() {
           var endpoint = 'historical';
-          var access_key = '14fb98202ccbd5ece920f774327855a3';
+          var access_key = '38beb183813c14963a4b0813cd4f6640';
           var currencies = 'BYR';
   
             function go(i) {
