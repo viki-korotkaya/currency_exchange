@@ -1,7 +1,7 @@
 "use strict";
   $(document).ready(function(){
     function getValue() {
-      var toDate = new Date ();
+      var toDate = new Date();
       var dd = toDate.getDate();
         if (dd < 10) dd = '0' + dd;
       var mm = toDate.getMonth() + 1;
@@ -29,6 +29,9 @@ $(document).ready(function(){
 
 
   function generateChart() {
+    document.getElementById("progress").style.display='block';
+      
+
 
       var startDate = new Date(document.getElementById("start").value); 
       var endDate =  new Date(document.getElementById("finish").value);
@@ -63,6 +66,7 @@ $(document).ready(function(){
   
             function go(i) {
               $.ajax({
+                  
                   url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key + '&date=' + arrDate[i] + '&currencies=' + currencies,   
                   dataType: 'json',
                   async: false,
@@ -76,7 +80,7 @@ $(document).ready(function(){
               go(i);
             }
         };
-
+        
         createDateArray();
         getData();
 
@@ -95,7 +99,7 @@ $(document).ready(function(){
         };
 
          getColorArray(arrCourse);
-
+         
         //функция построения графика
         $(function () {
 
@@ -130,6 +134,8 @@ $(document).ready(function(){
                 });
           
         });
+        document.getElementById("progress").style.display='none';
+
     };
     
     
