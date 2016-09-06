@@ -1,31 +1,10 @@
 "use strict";
   $(document).ready(function(){
-    function getValue() {
-      var toDate = new Date();
-      var dd = toDate.getDate();
-        if (dd < 10) dd = '0' + dd;
-      var mm = toDate.getMonth() + 1;
-        if (mm < 10) mm = '0' + mm;
-      var yyyy = toDate.getFullYear();
-      toDate = yyyy + '-' + mm + '-' + dd;
-        return toDate;  
-    }
-    document.getElementById("finish").value = getValue();
+    document.getElementById("finish").value = GetCurrencyRates.FinalDate();
+    document.getElementById("start").value = GetCurrencyRates.InitialDate(); 
   });
-
-$(document).ready(function(){
-    function getValueStart() {
-      var toDate = new Date ();
-      var dd = toDate.getDate();
-        if (dd < 10) dd = '0' + dd;
-      var mm = toDate.getMonth();
-        if (mm < 10) mm = '0' + mm;
-      var yyyy = toDate.getFullYear();
-      toDate = yyyy + '-' + mm + '-' + dd;
-      return toDate;  
-    } 
-    document.getElementById("start").value = getValueStart();
-  });
+    
+  
 
 
   function generateChart() {
@@ -69,7 +48,7 @@ $(document).ready(function(){
                   
                   url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key + '&date=' + arrDate[i] + '&currencies=' + currencies,   
                   dataType: 'json',
-                  async: false,
+                  
                   success: function(json) {
                     arrCourse.push(json.quotes.USDBYR);
                   }
