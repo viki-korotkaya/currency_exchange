@@ -1,4 +1,5 @@
-"use strict";
+"use strict"
+// А зачем здесь этот кусочек кода? 
   $(document).ready(function(){
     document.getElementById("finish").value = GetCurrencyRates.FinalDate();
     document.getElementById("start").value = GetCurrencyRates.InitialDate(); 
@@ -20,6 +21,14 @@
       //массив, который в последствии будет содержать курс BYR к доллару
       var arrCourse = [];
       var arrColor = ['#7cb5ec'];
+
+      // п1:Переписать функцию, используя return
+      // Подсказка: arrDate = createDateArray() .... 
+        createDateArray();
+      // См.п1(использовать return). + Передавать в getData() в качестве аргумента массив, в который будет записываться результат AJAX запроса.  
+        getData();
+      // См.п1(использовать return)
+        getColorArray(arrCourse);
 
         /*перебираем даты от начала до конца и преобразуем каждую в формат, 
         используемый в $.ajax и добавляем в массив arrDate*/
@@ -43,6 +52,7 @@
           var access_key = '38beb183813c14963a4b0813cd4f6640';
           var currencies = 'BYR';
   
+          // Название точно информативное ? ;)
             function go(i) {
               $.ajax({
                   
@@ -60,8 +70,7 @@
             }
         };
         
-        createDateArray();
-        getData();
+
 
         function getColorArray(arrCourse) {
 
@@ -77,11 +86,11 @@
           return arrColor;
         };
 
-         getColorArray(arrCourse);
          
-        //функция построения графика
+         
+        // функция построения графика
+        // Зачем здесь опять используется jQuery ? :) Как можно написать по-другому?
         $(function () {
-          
 
           Highcharts.setOptions({
             colors: arrColor
@@ -117,14 +126,3 @@
         document.getElementById("progress").style.display='none';
 
     };
-    
-    
-    
-
-    
-
-    
-
-
-
-           
