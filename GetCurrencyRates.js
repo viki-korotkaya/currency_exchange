@@ -31,16 +31,11 @@ function generateChart() {
     var startDate = new Date(document.getElementById("start").value); 
     var endDate =  new Date(document.getElementById("finish").value);
     var rightnow = startDate;
-
-    //создаем массив, который впоследствии будет содержать даты от и до
-    var arrDate = []; 
-    //массив, который в последствии будет содержать курс BYR к доллару
-    var arrCourse = [];
-    //массив цветов для столбов в зависимости от разницы в курсах
-    var arrColor = ['#7cb5ec'];
+       
 
     //функция создания массива дат для функции построения графика в формате YYYY-MM-DD
     function createDateArray() {
+      var result = [];
         while (rightnow <= endDate) {
             var dd = rightnow.getDate();
             if (dd < 10) dd = '0' + dd;
@@ -48,18 +43,20 @@ function generateChart() {
             if (mm < 10) mm = '0' + mm;
             var yyyy = rightnow.getFullYear();
             var currentDate = yyyy + '-' + mm + '-' + dd;
-            arrDate.push(currentDate);
+            result.push(currentDate);
             rightnow.setDate(rightnow.getDate() + 1);
         }
+        return result;
     };
-
+    //создаем массив, который впоследствии будет содержать даты от и до
+    var arrDate = createDateArray();
     //ajax-запрос, на выходе массив с данными по курсу валюты на выбранные даты arrCource
-      function collectArrCource() {
+      function collectArrCourse() {
           var endpoint = 'historical';
           var access_key = '38beb183813c14963a4b0813cd4f6640';
           var currencies = 'BYR';
-  
-          function getCource(i) {
+          var result = [];
+          function getCourse(i) {
             $.ajax({
                   
                   url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key + '&date=' + arrDate[i] + '&currencies=' + currencies,   
@@ -67,34 +64,35 @@ function generateChart() {
                   async: false,
                   
                   success: function(json) {
-                    arrCourse.push(json.quotes.USDBYR);
+                    result.push(json.quotes.USDBYR);
                   }
               })
             };
 
             for (var i = 0; i < arrDate.length; i++) {
-              getCource(i);
+              getCourse(i);
             }
+            return result;
         };
         
-        createDateArray();
-        collectArrCource();
+        
+        var arrCourse = collectArrCourse();
 
         function getColorArray(arrCourse) {
-
+          var result = ['#7cb5ec'];
           for (var i = 1; i < arrCourse.length; i++) {
             if (arrCourse[i] / arrCourse[i-1] >= 1.002) {
-              arrColor.push('red');
+              result.push('red');
             } else if (arrCourse[i] / arrCourse[i-1] <= 0.998) {
-              arrColor.push('green');
+              result.push('green');
             } else {
-              arrColor.push('#7cb5ec');
+              result.push('#7cb5ec');
             }
           };
-          return arrColor;
+          return result;
         };
 
-        getColorArray(arrCourse);
+        var arrColor = getColorArray(arrCourse);
          
         Highcharts.theme = {
           colors: arrColor,
@@ -119,10 +117,7 @@ function generateChart() {
         };
         Highcharts.setOptions(Highcharts.theme);
 
-        $(function () {
-
-          
-                $('#container').highcharts({
+        var chart = $('#container').highcharts({
                     
                     
                     title: {
@@ -138,9 +133,9 @@ function generateChart() {
                       
                     }]
                
-                });
-          
         });
+          
+        
         document.getElementById("progress").style.display='none';
       }, 5000);
     };
