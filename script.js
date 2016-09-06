@@ -81,6 +81,7 @@
          
         //функция построения графика
         $(function () {
+          
 
           Highcharts.setOptions({
             colors: arrColor
