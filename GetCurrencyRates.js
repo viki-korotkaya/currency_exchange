@@ -30,11 +30,10 @@ function generateChart() {
     setTimeout(function() { 
     var startDate = new Date(document.getElementById("start").value); 
     var endDate =  new Date(document.getElementById("finish").value);
-    var rightnow = startDate;
-       
-
+    
     //функция создания массива дат для функции построения графика в формате YYYY-MM-DD
-    function createDateArray() {
+    function createDateArray(startDate, endDate) {
+      var rightnow = startDate;
       var result = [];
         while (rightnow <= endDate) {
             var dd = rightnow.getDate();
@@ -49,9 +48,9 @@ function generateChart() {
         return result;
     };
     //создаем массив, который впоследствии будет содержать даты от и до
-    var arrDate = createDateArray();
-    //ajax-запрос, на выходе массив с данными по курсу валюты на выбранные даты arrCource
-      function collectArrCourse() {
+    var arrDate = createDateArray(startDate, endDate);
+    //ajax-запрос, на выходе массив с данными по курсу валюты на выбранные даты arrCourse
+      function collectArrCourse(arrDate) {
           var endpoint = 'historical';
           var access_key = '38beb183813c14963a4b0813cd4f6640';
           var currencies = 'BYR';
@@ -62,7 +61,6 @@ function generateChart() {
                   url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key + '&date=' + arrDate[i] + '&currencies=' + currencies,   
                   dataType: 'json',
                   async: false,
-                  
                   success: function(json) {
                     result.push(json.quotes.USDBYR);
                   }
@@ -76,7 +74,7 @@ function generateChart() {
         };
         
         
-        var arrCourse = collectArrCourse();
+        var arrCourse = collectArrCourse(arrDate);
 
         function getColorArray(arrCourse) {
           var result = ['#7cb5ec'];
@@ -137,5 +135,5 @@ function generateChart() {
           
         
         document.getElementById("progress").style.display='none';
-      }, 5000);
-    };
+    }, 5000);
+};
