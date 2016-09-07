@@ -1,7 +1,7 @@
 var GetCurrencyRates = (function() {
   return {
 
-    InitialDate: function() {
+    defaultInitialDate: function() {
       var toDate = new Date();
       var dd = toDate.getDate();
       if (dd < 10) dd = '0' + dd;
@@ -12,7 +12,7 @@ var GetCurrencyRates = (function() {
       return toDate;
     },
 
-    FinalDate: function() {
+    defaultFinalDate: function() {
       var toDate = new Date();
       var dd = toDate.getDate();
       if (dd < 10) dd = '0' + dd;
