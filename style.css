@@ -1,33 +1,35 @@
 body {
-background-color: #dfdfdf;
+    background: url("print10.png");
 }
-.container
-{
-background-color: #bebebe;
-padding: 30px;
-padding-bottom: 45px;
-margin-top: 30px;
-border-radius: 10px;
-    
+
+.container {
+    background-color: #bebebe;
+    padding: 30px;
+    padding-bottom: 45px;
+    margin-top: 30px;
+    border-radius: 10px;
 }
-.container form
-{
-    margin-left: 60px;
-     margin-right: 60px;
+
+h1 {
+    text-transform: uppercase;
 }
+
+.container form {
+    margin: 0 60px;
+}
+
 #container {
-background-color: #bebebe;
-height: 500px;
-margin-bottom: 0;
+    background-color: #bebebe;
+    height: 500px;
+    margin-bottom: 0;
 }
-.float-right
-{
+
+.float-right {
     display: inline-block;
     float: right;
 }
-.float-left
-{
+
+.float-left {
     display: inline-block;
-float: left;
+    float: left;
 }
- 

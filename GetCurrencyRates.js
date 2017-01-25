@@ -50,18 +50,17 @@ var GetCurrencyRates = (function() {
       var arrDate = createDateArray(startDate, endDate);
       //ajax-запрос, на выходе массив с данными по курсу валюты на выбранные даты arrCourse
       function collectArrCourse(arrDate) {
-        var endpoint = 'historical';
-        var access_key = '38beb183813c14963a4b0813cd4f6640';
-        var currencies = 'BYR';
+        
+        var access_key = 'ea01b30c8bcf489b83b05236f77334f8';
         var arrCourse = [];
         var i = 0;
 
         function getCourse(i) {
           $.ajax({
-            url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key + '&date=' + arrDate[i] + '&currencies=' + currencies,
+            url: 'https://openexchangerates.org/api/historical/'+ arrDate[i] + '.json?app_id=' + access_key,
             dataType: 'jsonp',
             success: function(json) {
-              arrCourse.push(json.quotes.USDBYR);
+              arrCourse.push(json.rates.BYN);
               i++;
               if (i < arrDate.length) {
                 getCourse(i);
@@ -95,7 +94,7 @@ var GetCurrencyRates = (function() {
 
 
                   title: {
-                    text: 'The change rate of the BYR against the dollar over time'
+                    text: 'The change rate of the BYN against the USD over time'
                   },
 
                   xAxis: {
