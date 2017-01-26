@@ -3,6 +3,7 @@ body {
 }
 
 .container {
+    position: relative;
     background-color: #bebebe;
     padding: 30px;
     padding-bottom: 45px;
@@ -32,4 +33,24 @@ h1 {
 .float-left {
     display: inline-block;
     float: left;
+}
+#loader {
+    display: none;
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    /*transform: translate(-50%, -50%);*/
+    margin-top: -40px;
+    margin-left: -40px;
+    text-align: center;
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid #337ab7; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

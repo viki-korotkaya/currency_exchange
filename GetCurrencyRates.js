@@ -25,7 +25,7 @@ var GetCurrencyRates = (function() {
 
 
     generateChart: function() {
-      document.getElementById("progress").style.display = 'block';
+      document.getElementById("loader").style.display = 'block';
 
       var startDate = new Date(document.getElementById("start").value);
       var endDate = new Date(document.getElementById("finish").value);
@@ -107,7 +107,7 @@ var GetCurrencyRates = (function() {
                   }]
 
                 });
-                document.getElementById("progress").style.display = 'none';
+                document.getElementById("loader").style.display = 'none';
 
               }
             }
