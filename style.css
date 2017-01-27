@@ -34,14 +34,14 @@ h1 {
     display: inline-block;
     float: left;
 }
-#loader {
+.loader-wrap {
     display: none;
     position: absolute; 
     left: 50%; 
     top: 50%; 
-    /*transform: translate(-50%, -50%);*/
-    margin-top: -40px;
-    margin-left: -40px;
+    transform: translate(-50%, -50%);
+}
+#loader {
     text-align: center;
     border: 16px solid #f3f3f3; 
     border-top: 16px solid #337ab7; 
